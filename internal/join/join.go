@@ -48,7 +48,7 @@ func join(left, right *table.Table, key string, keepUnmatched bool) (*Result, er
 		header = append(header, h)
 	}
 
-	var out [][]string
+	out := make([][]string, 0)
 	for _, lrow := range left.Rows {
 		matches := index[lrow[li]]
 		if len(matches) == 0 {
